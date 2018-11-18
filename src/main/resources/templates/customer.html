@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>customer</title>
+</head>
+<body>
+<div>
+    <a href="/customer/list">Customers' list</a>
+</div>
+<ul th:object="${customer}">
+    <li th:text="'Id: '+*{id}"> ID:100</li>
+    <li>First name:
+        <div th:text="*{firstName}">
+            Richard
+        </div>
+    </li>
+    <li>Last name:
+        <div th:text="*{lastName}">
+            Gorge
+        </div>
+    </li>
+    <li>Address:
+        <div th:text="*{addressLine}">
+            Błotna 12/4
+        </div>
+    </li>
+    <li>Email:
+        <div th:text="*{email}">
+            test@example.com
+        </div>
+    </li>
+    <li>Phone:
+        <div th:text="*{phoneNumber}">
+            +48 888 999 000
+        </div>
+    </li>
+    <li>Zip code:
+        <div th:text="*{zipCode}">
+            14-555
+        </div>
+    </li>
+    <li>City:
+        <div th:text="*{city}">
+            New York
+        </div>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers list</title>
+    <link rel="stylesheet" href="../static/css/style.css"
+          th:href="@{/css/style.css}" media="screen">
+</head>
+<body>
+<p align="right">
+    <a href="/logout">Logout</a>
+</p>
+<p>
+                <span sec:authorize="isAuthenticated()" style="display: inline-block;">
+                    | Logged user: <span sec:authentication="name"></span> |
+                    Roles: <span sec:authentication="principal.authorities"></span> |
+                    <a th:href="@{/logout}">Sign Out</a>
+                </span>
+</p>
+<a href="/customer/new">Add new customer</a>
+<table>
+    <tr>
+        <th>Lp</th>
+        <th>Name</th>
+        <th>Contacts</th>
+        <th>Tools</th>
+    </tr>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.id}">33</td>
+        <td th:text="${customer.firstName} + ' ' + ${customer.lastName}">
+            Richard Perk
+        </td>
+        <td>
+            <div th:text="${customer.email}">email@example.com</div>
+            ,<br/>
+            <div th:text="${customer.phoneNumber}">+48 tel number</div>
+        </td>
+        <td>
+            <a th:href="${'/customer/'+customer.id}">Show details</a><br/>
+            <a th:href="${'/customer/update/'+customer.id}">Edit</a><br/>
+            <a th:href="${'/customer/delete/'+customer.id}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
