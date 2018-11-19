@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import zajkuu.mvc.WebApplication.domain.Customer;
 
 @Repository
-public interface CustomerRepository extends CrudRepository<Customer,Integer> {
+public interface CustomerRepository extends CrudRepository<Customer, Integer> {
 }

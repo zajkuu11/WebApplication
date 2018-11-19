@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="../static/css/style.css"
+          th:href="@{/css/style.css}" media="screen">
+</head>
+<body>
+<ul th:object="${product}">
+
+    <li th:text="${product.id}">1</li>
+    <li th:text="${product.description}">aaaaaaaaaaaaa</li>
+    <li th:text="${product.price}">600</li>
+    <li th:text="${product.imageUrl}">600</li>
+
+</ul>
+</body>
+</html>

@@ -7,9 +7,7 @@
 <body>
 <h3 th:text="${title}">Form title</h3>
 
-<form method="post"
-      action="#"
-      th:action="@{/customer/update}"
+<form method="post" action="#" th:action="@{/customer/update}"
       th:object="${customer}">
     <table>
         <tr>

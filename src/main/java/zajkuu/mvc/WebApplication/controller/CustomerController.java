@@ -1,4 +1,4 @@
-package zajkuu.mvc.WebApplication.controllers;
+package zajkuu.mvc.WebApplication.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -77,7 +77,6 @@ class CustomerController {
                 "Creation");
         model.addAttribute("button",
                 "Create customer");
-
         return "customerEdit";
     }
 

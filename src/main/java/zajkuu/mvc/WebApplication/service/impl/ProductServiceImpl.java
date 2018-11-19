@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zajkuu.mvc.WebApplication.domain.Customer;
 import zajkuu.mvc.WebApplication.domain.Product;
+import zajkuu.mvc.WebApplication.repository.ProductRepository;
 import zajkuu.mvc.WebApplication.service.ProductService;
 
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -13,30 +15,37 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
-    ProductService productService;
+    private ProductRepository productRepository;
 
     @Override
-    public Customer update(Product product) {
-        return null;
+    public Product update(Product product) {
+        productRepository.save(product);
+        return productRepository.findById(product.getId()).get();
     }
 
     @Override
-    public Customer getOne(Integer id) {
-        return null;
+    public Product getOne(Integer id) {
+        return productRepository.findById(id).get();
     }
 
     @Override
-    public List<Customer> getAll() {
-        return null;
+    public List<Product> getAll() {
+        Iterable<Product> products = productRepository.findAll();
+        List<Product> customerList = new LinkedList<>();
+        for (Product product : products) {
+            customerList.add(product);
+        }
+        return customerList;
     }
 
     @Override
     public void delete(Integer id) {
-
+        productRepository.delete(productRepository.findById(id).get());
     }
 
     @Override
-    public Customer add(Product product) {
-        return null;
+    public Product add(Product product) {
+        productRepository.save(product);
+        return productRepository.findById(product.getId()).get();
     }
 }

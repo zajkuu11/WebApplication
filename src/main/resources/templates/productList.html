@@ -4,8 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
+    <link rel="stylesheet" href="../static/css/style.css"
+          th:href="@{/css/style.css}" media="screen">
 </head>
 <body>
-
+<a href="/product/new">Add new Product</a>
+<table>
+    <tr>
+        <th>Lp</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Tools</th>
+    </tr>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}">1</td>
+        <td th:text="${product.description}">gggggggggggggggggggg</td>
+        <td th:text="${product.price}">50</td>
+        <td>
+            <a th:href="${'/product/' + product.id}">Show details</a><br/>
+            <a th:href="${'/product/update/'+product.id}">Edit</a><br/>
+            <a th:href="${'/product/delete/'+product.id}">Delete</a>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

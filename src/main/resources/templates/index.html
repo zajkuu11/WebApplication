@@ -6,9 +6,6 @@
     <title>SDA Spring MVC</title>
 </head>
 <body>
-<H1>
-    Welcome in Spring MVC Application
-</H1>
 <div th:if="${visitor != null}">
 
     <h2 th:text="'Welcome: ' + ${visitor} + '!'">
@@ -18,11 +15,11 @@
 </div>
 <a href="/customer/list">Customers' list</a>
 <p>
-                <span sec:authorize="isAuthenticated()" style="display: inline-block;">
-                    | Logged user: <span sec:authentication="name"></span> |
-                    Roles: <span sec:authentication="principal.authorities"></span> |
-                    <a th:href="@{/logout}">Sign Out</a>
-                </span>
+    <span sec:authorize="isAuthenticated()" style="display: inline-block;">
+        | Logged user: <span sec:authentication="name"></span> |
+        Roles: <span sec:authentication="principal.authorities"></span> |
+        <a th:href="@{/logout}">Sign Out</a>
+    </span>
 </p>
 </body>
 </html>
